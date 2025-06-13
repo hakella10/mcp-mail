@@ -26,60 +26,53 @@ Refer google documentation on how to setup project and oauth. It would generate 
 Save it locally, to be read by mcp-mail server
 https://developers.google.com/workspace/guides/get-started 
 
-## Try Locally From Postman
-### Activate local python virtual environment
-  For Windows: 
+## Try Locally
 
-  ```.venv\Scripts\activate```
+   1) From Postman
+      - Open Postman
+      - Create a new collection
+      - Add a new MCP request
+      - Choose STDIO method
+      - Paste the following in the address and click Run. Update the correct the directory location
 
-  For Linux: 
+        `
+        {
+          "mcpServers": {
+            "gmailmcp": {
+              "command": "uv",
+              "args": [
+                "--directory",
+                "D:\\Local\\vscode\\ai\\mcp-mail",
+                "run",
+                "mcp-mail-stdio.py"
+              ]
+            }
+          }
+        }
+        `
+        - Try any of the tools
+          - echo()
+          - login()
+          - labels()
+          - messages(query,label)
 
-  ```source .venv\bin\activate```
+   2) From MCP Enabled IDE
+      - Open your IDE
+      - Add mcpServer configuration with correct directory location and restart IDE
 
-### Setup collection with Postman
-- Open Postman
-- Create a new collection
-- Add a new MCP request
-- Choose STDIO method
-- Paste the following in the address and click Run. Update the correct the directory location
+        `
+        {
+          "mcpServers": {
+            "gmailmcp": {
+              "command": "uv",
+              "args": [
+                "--directory",
+                "D:\\Local\\vscode\\ai\\mcp-mail",
+                "run",
+                "mcp-mail-stdio.py"
+              ]
+            }
+          }
+        }
+        `
 
-`
- {
-  "mcpServers": {
-    "gmailmcp": {
-      "command": "uv",
-      "args": [
-        "--directory",
-        "D:\\Local\\vscode\\ai\\mcp-mail",
-        "run",
-        "mcp-mail-stdio.py"
-      ]
-    }
-  }
-}
-`
-- Try any of the tools
-  - echo()
-  - login()
-  - labels()
-  - messages(query,label)
-
-## Try Locally From MCP Enabled IDE
-- Open your IDE
-- Add mcpServer configuration with correct directory location and restart IDE
-
-`
- {
-  "mcpServers": {
-    "gmailmcp": {
-      "command": "uv",
-      "args": [
-        "--directory",
-        "D:\\Local\\vscode\\ai\\mcp-mail",
-        "run",
-        "mcp-mail-stdio.py"
-      ]
-    }
-  }
-}
-`
